@@ -1,0 +1,26 @@
+{
+  "name": "bamazon",
+  "version": "1.0.0",
+  "description": "an app similar to amazon allowing a customer to purchase items and a supervisor to monitor inventory.",
+  "main": "bamazon.js",
+  "dependencies": {
+    "console.table": "^0.8.0",
+    "inquirer": "^3.0.6",
+    "prompt": "^1.0.0",
+    "mysql": "^2.13.0"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/janettwalker/Bamazon.git"
+  },
+  "author": "Janet Walker",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/janettwalker/Bamazon/issues"
+  },
+  "homepage": "https://github.com/janettwalker/Bamazon#readme"
+}
