@@ -1,4 +1,8 @@
-var mysql      = require('mysql');
+var mysql = require('mysql');
+
+var inquirer = require("inquirer")
+
+var consoleTable = require("console.table")
 
 
 var connection = mysql.createConnection({
@@ -9,20 +13,27 @@ var connection = mysql.createConnection({
   database : 'bamazonDB'
 });
 
-connection.connect();
  
-var displayItems = function(){
- 
-connection.query('SELECT * FROM products', function (err, res) {
-  	currentItems = res;
-  	if (error) throw error;
-  	for (var i = 0; i < res.length; i++) {
-  		console.log(res[i].item_id + ". " + res[i].product_name + ". " + res[i].price + ".")
-  	}
-  	console.log(currentItems);
-});
-};
+// connect to the mysql server and sql database
+function listItems() {
+  // a) display the products (names, IDs, and prices)
+  connection.query('SELECT * FROM products', function(err, results) {
+    // errors
+    if (err) throw err;
 
-displayItems();
- 
+    // tell users they're looking at the product list
+    console.log("Welcome to Bamazon!\nHere's our selection!");
+
+    // loop through results array, log apropos results
+    for (var i = 0; i < results.length; i++) {
+      console.log(results[i].item_id + ". " +
+                  results[i].product_name + " ($" +
+                  results[i].price + ")");
+    }
+    // run Purchase Item
+    // purchaseItem(true); 
+  })
+}
+
+listItems();
 connection.end();
